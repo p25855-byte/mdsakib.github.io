@@ -5,126 +5,170 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sakib360</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Segoe UI', sans-serif;
-    }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body { background:#0f0f0f; color:#fff; overflow-x:hidden; scroll-behavior:smooth; }
 
-    body {
-        background: #0f0f0f;
-        color: #fff;
-        line-height: 1.6;
-    }
+/* NAV */
+nav {
+    position:fixed; top:0; width:100%;
+    display:flex; justify-content:center; gap:30px;
+    padding:15px; z-index:1000;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(12px);
+    transition:0.3s;
+}
+nav.hide { transform:translateY(-100%); }
+nav a { color:#fff; text-decoration:none; transition:0.3s; }
+nav a:hover { color:#ff2c2c; }
 
-    header {
-        text-align: center;
-        padding: 60px 20px;
-        background: linear-gradient(to bottom, #1a1a1a, #000);
-    }
+/* HERO */
+header {
+    height:120vh;
+    display:flex; flex-direction:column;
+    justify-content:center; align-items:center;
+    text-align:center;
+    position:relative;
+}
 
-    header img {
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 3px solid #ff2c2c;
-        margin-bottom: 15px;
-    }
+header img {
+    width:140px; height:140px;
+    border-radius:50%; border:3px solid #ff2c2c;
+    margin-bottom:20px;
+    transform:scale(1);
+    transition:transform 0.3s;
+}
 
-    header h1 {
-        font-size: 2.5rem;
-    }
+h1 { font-size:3rem; }
+.typing { color:#ff2c2c; margin-top:10px; }
 
-    header p {
-        color: #aaa;
-        margin-top: 10px;
-    }
+/* PARALLAX SECTIONS */
+section {
+    max-width:900px;
+    margin:120px auto;
+    padding:30px;
+    background:#1a1a1a;
+    border-radius:14px;
+    opacity:0;
+    transform:translateY(80px) scale(0.95);
+    transition:all 0.8s ease;
+}
 
-    section {
-        max-width: 900px;
-        margin: 30px auto;
-        padding: 25px;
-        background: #1a1a1a;
-        border-radius: 12px;
-        box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-    }
+section.show {
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
 
-    h2 {
-        color: #ff2c2c;
-        margin-bottom: 15px;
-    }
+h2 { color:#ff2c2c; margin-bottom:15px; }
 
-    ul {
-        list-style: none;
-    }
+.project {
+    background:#262626;
+    padding:15px;
+    border-radius:10px;
+    margin-top:10px;
+    transition:all 0.4s ease;
+}
 
-    ul li {
-        background: #262626;
-        margin: 8px 0;
-        padding: 10px;
-        border-radius: 6px;
-    }
+.project:hover {
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 20px 40px rgba(255,0,0,0.3);
+}
 
-    .project {
-        background: #262626;
-        padding: 15px;
-        border-radius: 8px;
-    }
+button {
+    margin-top:15px;
+    padding:10px 20px;
+    background:#ff2c2c;
+    border:none; color:white;
+    border-radius:6px; cursor:pointer;
+}
 
-    footer {
-        text-align: center;
-        padding: 20px;
-        margin-top: 20px;
-        color: #777;
-    }
+footer { text-align:center; padding:20px; color:#777; }
 </style>
 </head>
 
 <body>
 
-<header>
-    <img src="profile.png" alt="Profile Image">
-    <h1>Your Full Name</h1>
-    <p>Aspiring Developer | Student | Creative Thinker</p>
+<nav id="navbar">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<header id="hero">
+    <img src="profile.png" id="profile">
+    <h1>Sakib Hasan</h1>
+    <div class="typing" id="typing"></div>
 </header>
 
-<section>
+<section id="about">
     <h2>About Me</h2>
-    <p>
-        I am a motivated student passionate about technology and design. I enjoy building projects,
-        learning new skills, and exploring creative ways to solve problems.
-    </p>
+    <p>I build modern, interactive web experiences with smooth animations and clean UI.</p>
 </section>
 
-<section>
+<section id="skills">
     <h2>Skills</h2>
-    <ul>
-        <li>HTML & CSS</li>
-        <li>JavaScript Basics</li>
-        <li>Problem Solving</li>
-        <li>Communication</li>
-        <li>Teamwork</li>
-    </ul>
+    <p>HTML, CSS, JavaScript, UI Design, Problem Solving</p>
 </section>
 
-<section>
+<section id="projects">
     <h2>Projects</h2>
-    <div class="project">
-        <p><strong>Portfolio Website:</strong> Built a responsive personal portfolio using HTML and CSS to showcase my work and skills.</p>
-    </div>
+    <div class="project">Portfolio Website</div>
+    <div class="project">Todo App</div>
+    <div class="project">Weather App</div>
 </section>
 
-<section>
+<section id="contact">
     <h2>Contact</h2>
-    <p>Email: yourname@psu.edu</p>
+    <p>Email: your@email.com</p>
+    <button onclick="alert('Coming Soon!')">Download CV</button>
 </section>
 
 <footer>
-    <p>© 2026 Your Name</p>
+    <p>© 2026 Sakib Hasan</p>
 </footer>
+
+<script>
+// Typing effect
+const texts = ["Frontend Developer","UI Designer","Creative Thinker"];
+let count=0, index=0, currentText='', letter='';
+(function type(){
+    if(count===texts.length) count=0;
+    currentText=texts[count];
+    letter=currentText.slice(0,++index);
+    document.getElementById('typing').textContent=letter;
+    if(letter.length===currentText.length){ count++; index=0; setTimeout(type,1200);} 
+    else setTimeout(type,60);
+})();
+
+// Scroll reveal + Apple-like scaling
+const sections=document.querySelectorAll("section");
+const profile=document.getElementById("profile");
+const hero=document.getElementById("hero");
+let lastScroll=0;
+
+window.addEventListener("scroll",()=>{
+    const scrollY=window.scrollY;
+
+    // Navbar hide/show
+    const nav=document.getElementById("navbar");
+    if(scrollY>lastScroll) nav.classList.add("hide");
+    else nav.classList.remove("hide");
+    lastScroll=scrollY;
+
+    // Hero zoom out (Apple style)
+    const scale = Math.max(0.7, 1 - scrollY/1000);
+    profile.style.transform = `scale(${scale})`;
+
+    // Section reveal
+    sections.forEach(sec=>{
+        const offset=sec.offsetTop - window.innerHeight + 100;
+        if(scrollY>offset){ sec.classList.add("show"); }
+    });
+});
+</script>
 
 </body>
 </html>
