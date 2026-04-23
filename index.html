@@ -8,97 +8,144 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
 
-/body {
-    background: linear-gradient(-45deg, #0f0f0f, #1a1a1a, #2c0f0f);
+/* FIXED BODY */
+body {
+    background: linear-gradient(-45deg, #0f0f1a, #1a1a2e, #0b0b15, #1a0f2c);
     background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    animation: gradient 12s ease infinite;
+    color:white;
 }
 
 @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}* NAV */
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+}
+
+/* NAVBAR */
 nav {
-    position:fixed; top:0; width:100%;
-    display:flex; justify-content:center; gap:30px;
-    padding:15px; z-index:1000;
-    background:rgba(0,0,0,0.5);
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:15px;
+    z-index:1000;
+    background:rgba(0,0,0,0.4);
     backdrop-filter:blur(12px);
     transition:0.3s;
 }
+
 nav.hide { transform:translateY(-100%); }
-nav a { color:#fff; text-decoration:none; transition:0.3s; }
-nav a:hover { color:#ff2c2c; }
+
+nav a {
+    color:#fff;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav a:hover {
+    color:#a855f7;
+}
 
 /* HERO */
 header {
-    height:120vh;
-    display:flex; flex-direction:column;
-    justify-content:center; align-items:center;
+    height:110vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    position:relative;
 }
 
 header img {
-    width:140px; height:140px;
-    border-radius:50%; border:3px solid #ff2c2c;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:3px solid #a855f7;
     margin-bottom:20px;
-    transform:scale(1);
     transition:transform 0.3s;
 }
 
-h1 { font-size:3rem; }
-.typing { color:#ff2c2c; margin-top:10px; }
+h1 {
+    font-size:3rem;
+}
 
-/* PARALLAX SECTIONS */
+.typing {
+    color:#a855f7;
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+/* SECTIONS */
 section {
     max-width:900px;
-    margin:120px auto;
+    margin:100px auto;
     padding:30px;
-    background:#1a1a1a;
-    border-radius:14px;
+    background:rgba(255,255,255,0.05);
+    border-radius:16px;
+    backdrop-filter:blur(10px);
     opacity:0;
-    transform:translateY(80px) scale(0.95);
-    transition:all 0.8s ease;
+    transform:translateY(60px);
+    transition:all 0.7s ease;
 }
 
 section.show {
     opacity:1;
-    transform:translateY(0) scale(1);
+    transform:translateY(0);
 }
 
-h2 { color:#ff2c2c; margin-bottom:15px; }
+h2 {
+    color:#a855f7;
+    margin-bottom:15px;
+}
 
+/* PROJECT CARD */
 .project {
-    background:#262626;
+    background:rgba(255,255,255,0.08);
     padding:15px;
-    border-radius:10px;
+    border-radius:12px;
     margin-top:10px;
-    transition:all 0.4s ease;
+    transition:0.4s;
 }
 
 .project:hover {
     transform:translateY(-10px) scale(1.03);
-    box-shadow:0 20px 40px rgba(255,0,0,0.3);
+    box-shadow:0 20px 40px rgba(168,85,247,0.3);
 }
 
+/* BUTTON */
 button {
     margin-top:15px;
     padding:10px 20px;
-    background:#ff2c2c;
-    border:none; color:white;
-    border-radius:6px; cursor:pointer;
+    background:#a855f7;
+    border:none;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-footer { text-align:center; padding:20px; color:#777; }
+/* FOOTER */
+footer {
+    text-align:center;
+    padding:20px;
+    color:#aaa;
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav id="navbar">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -106,33 +153,38 @@ footer { text-align:center; padding:20px; color:#777; }
     <a href="#contact">Contact</a>
 </nav>
 
+<!-- HERO -->
 <header id="hero">
-    <img src="profile.png" id="profile">
+    <img src="https://i.pravatar.cc/200" id="profile">
     <h1>Sakib Uddin</h1>
     <div class="typing" id="typing"></div>
 </header>
 
+<!-- ABOUT -->
 <section id="about">
     <h2>About Me</h2>
-    <p>I build modern, interactive web experiences with smooth animations and clean UI.</p>
+    <p>I design and build modern, high-performance websites with clean code and smooth animations.</p>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
     <h2>Skills</h2>
-    <p>HTML, CSS, JavaScript, UI Design, Problem Solving</p>
+    <p>HTML, CSS, JavaScript, React, UI Design</p>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
     <h2>Projects</h2>
-    <div class="project">Portfolio Website</div>
-    <div class="project">Todo App</div>
+    <div class="project">Finance Dashboard</div>
+    <div class="project">AI Content Generator</div>
     <div class="project">Weather App</div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
     <p>Email: p25855@psuca.edu</p>
-    <button onclick="alert('Coming Soon!')">Download CV</button>
+    <button onclick="alert('CV coming soon!')">Download CV</button>
 </section>
 
 <footer>
@@ -141,40 +193,46 @@ footer { text-align:center; padding:20px; color:#777; }
 
 <script>
 // Typing effect
-const texts = ["Frontend Developer","UI Designer","Creative Thinker"];
-let count=0, index=0, currentText='', letter='';
-(function type(){
-    if(count===texts.length) count=0;
-    currentText=texts[count];
-    letter=currentText.slice(0,++index);
-    document.getElementById('typing').textContent=letter;
-    if(letter.length===currentText.length){ count++; index=0; setTimeout(type,1200);} 
-    else setTimeout(type,60);
-})();
+const texts = ["Frontend Developer", "UI Designer", "Creative Thinker"];
+let count = 0, index = 0;
 
-// Scroll reveal + Apple-like scaling
-const sections=document.querySelectorAll("section");
-const profile=document.getElementById("profile");
-const hero=document.getElementById("hero");
-let lastScroll=0;
+function type() {
+    let current = texts[count];
+    document.getElementById("typing").textContent = current.slice(0, index++);
 
-window.addEventListener("scroll",()=>{
-    const scrollY=window.scrollY;
+    if(index > current.length){
+        count = (count + 1) % texts.length;
+        index = 0;
+        setTimeout(type, 1200);
+    } else {
+        setTimeout(type, 60);
+    }
+}
+type();
+
+// Scroll effects
+const sections = document.querySelectorAll("section");
+const profile = document.getElementById("profile");
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
 
     // Navbar hide/show
-    const nav=document.getElementById("navbar");
-    if(scrollY>lastScroll) nav.classList.add("hide");
+    const nav = document.getElementById("navbar");
+    if(scrollY > lastScroll) nav.classList.add("hide");
     else nav.classList.remove("hide");
-    lastScroll=scrollY;
+    lastScroll = scrollY;
 
-    // Hero zoom out (Apple style)
-    const scale = Math.max(0.7, 1 - scrollY/1000);
+    // Profile zoom
+    const scale = Math.max(0.7, 1 - scrollY / 800);
     profile.style.transform = `scale(${scale})`;
 
     // Section reveal
-    sections.forEach(sec=>{
-        const offset=sec.offsetTop - window.innerHeight + 100;
-        if(scrollY>offset){ sec.classList.add("show"); }
+    sections.forEach(sec => {
+        if(scrollY > sec.offsetTop - window.innerHeight + 100){
+            sec.classList.add("show");
+        }
     });
 });
 </script>
